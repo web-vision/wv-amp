@@ -1,0 +1,25 @@
+{
+    "name": "web-vision/wv-amp",
+    "type": "typo3-cms-extension",
+    "description": "web-vision AMP generator",
+    "autoload": {
+        "psr-4": {
+            "WebVision\\WvAmp\\": "Classes"
+        }
+    },
+    "require-dev": {
+        "typo3/cms-core": "^9.5 || ^10.4"
+    },
+    "authors": [
+        {
+            "name": "Yannick Hermes",
+            "email": "y.hermes@web-vision.de",
+            "role": "lead"
+        },
+        {
+            "name": "Riad Zejnilagic Trumic",
+            "email": "riad@web-vision.de",
+            "role": "Developer"
+        }
+    ]
+}

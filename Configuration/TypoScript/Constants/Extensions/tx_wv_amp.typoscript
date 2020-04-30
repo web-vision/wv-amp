@@ -1,0 +1,7 @@
+plugin {
+    tx_wv_amp {
+        typeNum = 701
+
+        processForDoktypes = 1
+    }
+}

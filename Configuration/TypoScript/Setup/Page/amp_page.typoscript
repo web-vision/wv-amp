@@ -1,0 +1,111 @@
+amp = PAGE
+amp {
+    typeNum = {$plugin.tx_wv_amp.typeNum}
+
+    10 = FLUIDTEMPLATE
+    10 {
+        file = EXT:wv_amp/Resources/Private/Templates/Default.html
+
+        variables {
+            content < styles.content.get
+            content {
+                #Regular expresion changes <img> tag to <amp-img> compliant tag
+                stdWrap.replacement {
+                    10 {
+                        search = #<img(.*)/>#i
+                        replace = <amp-img\1></amp-img>
+                        useRegExp = 1
+                        useOptionSplitReplace = 1
+                    }
+                }                
+            }
+        }
+
+        dataProcessing {
+            10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+            10 {
+                references {
+                    fieldName = media
+                }
+            }
+        }
+    }
+
+    headerData {
+        # Can start from 40 if needed
+        50 = TEXT
+        50 {
+            value = <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+        }
+        
+        60 = TEXT
+        60 {
+            value = <script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
+        }
+
+        70 = TEXT
+        70 {
+            typolink {
+                parameter {
+                    data = page:uid
+                }
+
+                returnLast = url
+                forceAbsoluteUrl = 1
+            }
+
+            wrap = <link rel="canonical" href="|" />
+        }
+
+        80 = USER
+        80 {
+            userFunc = WebVision\WvAmp\UserFunctions\GetFileContents->process
+
+            file = EXT:wv_amp/Resources/Public/css/ampBoilerplate.css
+
+            override {
+                marker = {CONTENT}
+                in = <style amp-boilerplate>{CONTENT}</style>
+            }
+        }
+        
+        81 = USER
+        81 {
+            userFunc = WebVision\WvAmp\UserFunctions\GetFileContents->process
+
+            file = EXT:wv_amp/Resources/Public/css/ampNoScriptBoilerplate.css
+
+            override {
+                marker = {CONTENT}
+                in = <noscript><style amp-boilerplate>{CONTENT}</style></noscript>
+            }
+        }
+
+    }
+
+    meta {
+        viewport = width=device-width,minimum-scale=1
+    }
+
+    includeJS {
+        ampjs = https://cdn.ampproject.org/v0.js
+        ampjs {
+            async = 1
+            external = 1
+        }
+    }
+}
+
+[globalVar = GP:type={$plugin.tx_wv_amp.typeNum}]
+    config {
+        
+        htmlTag_setParams = ⚡
+
+        compressCss = 0
+        compressJs = 0
+        concatenateCss = 0
+        concatenateJs = 0
+        removeDefaultJS = 1
+        moveJsFromHeaderToFooter = 0
+    }
+[global]

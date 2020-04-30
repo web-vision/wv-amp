@@ -1,0 +1,12 @@
+page {
+    headerData {
+        701 = USER
+        701 {
+            userFunc = WebVision\WvAmp\UserFunctions\LinkAmp->process
+
+            processForDoktypes = {$plugin.tx_wv_amp.processForDoktypes}
+            typeNum = {$plugin.tx_wv_amp.typeNum}
+            toAmp = 1
+        }
+    }
+}

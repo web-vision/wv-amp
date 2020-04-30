@@ -1,0 +1,1 @@
+@import 'EXT:wv_amp/Configuration/TypoScript/Setup/page/*.typoscript'
