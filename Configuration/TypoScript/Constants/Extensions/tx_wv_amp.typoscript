@@ -3,5 +3,7 @@ plugin {
         typeNum = 701
 
         processForDoktypes = 1
+        headerLogoPath = 
+        themeColor = #616161
     }
 }

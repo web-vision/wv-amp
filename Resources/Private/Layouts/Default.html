@@ -1,0 +1,15 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:amp="http://typo3.org/ns/WebVision/WvAmp/ViewHelpers"
+      xmlns:wvs="http://typo3.org/ns/WebVision/WvSite/ViewHelpers"
+      data-namespace-typo3-fluid="true"
+>
+    <div class="container">
+        <f:render partial="Header" arguments="{_all}" />
+
+        <div class="wrapper">
+            <f:render section="Content" arguments="{_all}" />
+        </div>
+
+        <f:render partial="Footer" arguments="{_all}" />
+    </div>
+</html>

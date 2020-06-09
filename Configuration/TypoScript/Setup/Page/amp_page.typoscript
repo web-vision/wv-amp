@@ -4,9 +4,27 @@ amp {
 
     10 = FLUIDTEMPLATE
     10 {
-        file = EXT:wv_amp/Resources/Private/Templates/Default.html
+        templateName = Default
+        // Define paths for templates
+        templateRootPaths {
+            10 = EXT:wv_amp/Resources/Private/Templates/
+        }
+        partialRootPaths {
+            10 = EXT:wv_amp/Resources/Private/Partials/
+        }
+        layoutRootPaths {
+            10 = EXT:wv_amp/Resources/Private/Layouts/
+        }
 
         variables {
+            logo = TEXT
+            logo {
+                value = {$plugin.tx_wv_amp.headerLogoPath}
+            }
+            themeColor =  TEXT
+            themeColor {
+                value = {$plugin.tx_wv_amp.themeColor}
+            }
             content < styles.content.get
             content {
                 #Regular expresion changes <img> tag to <amp-img> compliant tag
@@ -17,7 +35,7 @@ amp {
                         useRegExp = 1
                         useOptionSplitReplace = 1
                     }
-                }                
+                }
             }
         }
 
@@ -62,7 +80,7 @@ amp {
             userFunc = WebVision\WvAmp\UserFunctions\GetFileContents->process
 
             file = EXT:wv_amp/Resources/Public/css/ampBoilerplate.css
-
+           
             override {
                 marker = {CONTENT}
                 in = <style amp-boilerplate>{CONTENT}</style>

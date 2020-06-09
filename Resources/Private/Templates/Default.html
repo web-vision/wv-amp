@@ -1,18 +1,7 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-      xmlns:amp="http://typo3.org/ns/WebVision/WvAmp/ViewHelpers"
-	  data-namespace-typo3-fluid="true"
->
-	<div class="title">
-		<h1>{data.title -> f:format.raw()}</h1>
-	</div>
+<f:layout name="Default" />
 
-	<f:if condition="{files.0}">
-		<div class="image">
-			<amp:amp.image src="{files.0.uid}" treatIdAsReference="1"></amp:amp.image>
-		</div>
-	</f:if>
-
-	<div class="content">
+<f:section name="Content">
+    <div class="content">
 		<p>{content -> f:format.raw()}</p>
 	</div>
-</html>
+</f:section>
