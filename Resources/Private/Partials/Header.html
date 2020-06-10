@@ -1,1 +1,15 @@
-<amp:amp.image src="{logo}" alt="logo"></amp:amp.image>
+<header class="amp-header">
+    <div class="logo-wrapper">
+        <f:link.typolink parameter="{data.uid}">
+            <amp:amp.image src="{HeaderLogo}"
+                           alt="logo"
+                           class="img-fluid"
+                           layout="fixed"
+            >
+            </amp:amp.image>
+        </f:link.typolink>
+    </div>
+    <div class="logo-text-wrapper">
+      <span class="logo-text">{HeaderlogoText}</span>
+    </div>
+</header>

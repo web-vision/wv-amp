@@ -4,6 +4,7 @@ plugin {
 
         processForDoktypes = 1
         headerLogoPath = 
-        themeColor = #616161
+        headerLogoText =
+        themeColor = 
     }
 }

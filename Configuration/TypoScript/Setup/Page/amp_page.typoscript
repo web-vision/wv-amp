@@ -17,9 +17,13 @@ amp {
         }
 
         variables {
-            logo = TEXT
-            logo {
+            HeaderLogo = TEXT
+            HeaderLogo {
                 value = {$plugin.tx_wv_amp.headerLogoPath}
+            }
+            HeaderlogoText = TEXT
+            HedaerlogoText {
+                value = {$plugin.tx_wv_amp.headerLogoText}
             }
             themeColor =  TEXT
             themeColor {
