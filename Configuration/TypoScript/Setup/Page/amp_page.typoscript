@@ -65,20 +65,6 @@ amp {
             value = <script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
         }
 
-        70 = TEXT
-        70 {
-            typolink {
-                parameter {
-                    data = page:uid
-                }
-
-                returnLast = url
-                forceAbsoluteUrl = 1
-            }
-
-            wrap = <link rel="canonical" href="|" />
-        }
-
         80 = USER
         80 {
             userFunc = WebVision\WvAmp\UserFunctions\GetFileContents->process
@@ -103,6 +89,17 @@ amp {
             }
         }
 
+        100 = USER
+        100 {
+            userFunc = WebVision\WvAmp\UserFunctions\GetFileContents->process
+
+            file = EXT:wv_amp/Resources/Public/css/styles.css
+
+            override {
+                marker = {CONTENT}
+                in = <style amp-custom>{CONTENT}</style>
+            }
+        }
     }
 
     meta {
@@ -119,6 +116,12 @@ amp {
 }
 
 [globalVar = GP:type={$plugin.tx_wv_amp.typeNum}]
+    lib.contentElement {
+        partialRootPaths {
+            100 = EXT:wv_amp/Resources/Private/Partials/ContentElements
+        }
+    }
+    
     config {
         
         htmlTag_setParams = ⚡
@@ -129,5 +132,6 @@ amp {
         concatenateJs = 0
         removeDefaultJS = 1
         moveJsFromHeaderToFooter = 0
+        removeDefaultCss = 1
     }
 [global]
