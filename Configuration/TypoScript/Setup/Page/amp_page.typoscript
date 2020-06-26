@@ -115,7 +115,7 @@ amp {
     }
 }
 
-[globalVar = GP:type={$plugin.tx_wv_amp.typeNum}]
+[request.getPageArguments().get('type') == {$plugin.tx_wv_amp.typeNum}]
     lib.contentElement {
         partialRootPaths {
             100 = EXT:wv_amp/Resources/Private/Partials/ContentElements
